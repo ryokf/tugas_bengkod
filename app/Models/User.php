@@ -45,4 +45,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function pemeriksaanSebagaiPasien()
+    {
+        return $this->hasMany(Periksa::class, 'id_pasien');
+    }
+
+    // Relationship with pemeriksaan as dokter
+    public function pemeriksaanSebagaiDokter()
+    {
+        return $this->hasMany(Periksa::class, 'id_dokter');
+    }
 }
